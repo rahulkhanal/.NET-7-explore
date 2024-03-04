@@ -39,5 +39,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 app.MapGet("/games", () => games);
+app.MapGet("/games/{gid}", (int gid) => games.Find(game => game.Id == gid));
+
 
 app.Run();
